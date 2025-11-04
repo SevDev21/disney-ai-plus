@@ -19,5 +19,20 @@ This document is designed to help AI assistants and developers quickly understan
 
 ---
 
+## Feature PRDs
+
+### Authorization Architecture
+- **Authorization Architecture** → [PRD](https://www.notion.so/2a186e7c70d08177911bf56e72795caf)
+  - #24 Authorization Architecture: Implement Sign-in Flow
+  - #25 Authorization Architecture: Secure Token Storage
+  - #26 Authorization Architecture: API Request Authorization
+  - #27 Authorization Architecture: Token Refresh Mechanism
+  - #28 Authorization Architecture: Backend Token Validation
+  - #29 Authorization Architecture: Error Handling & User Experience
+  - #30 Authorization Architecture: Integration Testing
+  - #31 Authorization Architecture: Token Configuration & Security
+
+---
+
 *Note: This PRD is maintained as a markdown document in the repository for easy access and version control.*
 
