@@ -1,0 +1,251 @@
+# Disney AI Plus Project Rules
+
+## Project Overview
+
+Disney AI Plus is a video management and AI-powered content platform built with Next.js 16, Supabase, and Tailwind CSS.
+
+## Tech Stack
+
+- **Framework**: Next.js 16.0.1 (App Router)
+- **React**: 19.2.0
+- **Database**: Supabase (PostgreSQL)
+- **Auth**: Supabase Auth with email/password
+- **Styling**: Tailwind CSS v4
+- **UI Components**: shadcn/ui (New York style)
+- **Package Manager**: pnpm
+- **TypeScript**: Strict mode enabled
+
+## Database Schema
+
+### profiles table (already exists)
+
+```sql
+profiles (
+  id UUID PRIMARY KEY REFERENCES auth.users(id),
+  email TEXT,
+  role TEXT DEFAULT 'user',  -- 'user' or 'admin'
+  created_at TIMESTAMPTZ,
+  updated_at TIMESTAMPTZ
+)
+```
+
+**IMPORTANT**: The profiles table already exists with admin users set up. Do NOT recreate it.
+
+### videos table
+
+```sql
+videos (
+  id UUID PRIMARY KEY,
+  title TEXT NOT NULL,
+  description TEXT,
+  thumbnail_url TEXT NOT NULL,
+  video_url TEXT NOT NULL,
+  uploaded_at TIMESTAMPTZ DEFAULT NOW(),
+  uploader_id UUID REFERENCES auth.users(id),
+  duration INTEGER,      -- in seconds
+  file_size BIGINT,      -- in bytes
+  created_at TIMESTAMPTZ,
+  updated_at TIMESTAMPTZ
+)
+```
+
+## Authentication & Authorization
+
+### Routes
+
+- `/login` - Login/signup page
+- `/dashboard` - Regular user dashboard
+- `/admin/dashboard` - Admin dashboard (admin users only)
+- `/auth/callback` - OAuth callback handler
+- `/auth/auth-code-error` - Auth error page
+
+### Role-Based Access
+
+- Admin users are automatically redirected to `/admin/dashboard`
+- Regular users are redirected to `/dashboard`
+- Middleware protects routes and handles role-based redirects
+- Non-admin users cannot access `/admin/*` routes
+
+### Key Components
+
+- `src/lib/supabase/client.ts` - Browser Supabase client
+- `src/lib/supabase/server.ts` - Server Supabase client
+- `src/middleware.ts` - Auth middleware with role checking
+- `src/components/LogoutButton.tsx` - Logout functionality
+
+## Admin Dashboard
+
+The admin dashboard at `/admin/dashboard` has two tabs:
+
+### Media Tab
+
+- Grid view of uploaded videos (responsive: 1/2/3 columns)
+- Shows: thumbnail, title, description, duration, file size, upload time
+- Fetches from `videos` table in Supabase
+- Component: `src/components/admin/MediaView.tsx`
+
+### Users Tab
+
+- List view of all user profiles
+- Shows: email, user ID, role badge, join date, last updated
+- Fetches from `profiles` table in Supabase
+- Component: `src/components/admin/UsersView.tsx`
+
+## Code Conventions
+
+### Import Aliases
+
+Use the `@/*` alias for clean imports:
+
+```typescript
+import { Button } from "@/components/ui/button";
+import { createClient } from "@/lib/supabase/server";
+```
+
+### Component Patterns
+
+- Use Server Components by default (Next.js App Router)
+- Use `'use client'` directive only when needed (forms, interactions)
+- Always validate auth and roles server-side
+- Fetch data in server components, not middleware
+
+### Styling
+
+- Use Tailwind CSS utility classes
+- Support dark mode with `dark:` variants
+- Use shadcn/ui components for consistency
+- Utility function: `cn()` from `@/lib/utils` for merging classes
+
+### File Structure
+
+```
+src/
+├── app/
+│   ├── admin/dashboard/     # Admin routes
+│   ├── dashboard/           # User routes
+│   ├── login/              # Auth pages
+│   └── auth/               # Auth callbacks
+├── components/
+│   ├── admin/              # Admin-specific components
+│   ├── ui/                 # shadcn/ui components
+│   └── *.tsx               # Shared components
+└── lib/
+    ├── supabase/           # Supabase clients
+    └── utils.ts            # Utility functions
+```
+
+## AI Assistant Preferences
+
+### 1. Always Use Context7 for Documentation
+
+Before making changes involving external libraries or frameworks, use the Context7 MCP to get the latest documentation:
+
+```typescript
+// Example: Before implementing Supabase features
+// Use: mcp__context7__resolve-library-id with "supabase"
+// Then: mcp__context7__get-library-docs with the resolved ID
+```
+
+**When to use Context7:**
+
+- Adding new features with Supabase
+- Implementing Next.js patterns
+- Using shadcn/ui components
+- Working with React hooks or patterns
+- Any external library integration
+
+### 2. Use Playwright MCP for Browser Testing
+
+After implementing UI changes, use Playwright MCP to test in the browser:
+
+```typescript
+// Steps:
+// 1. mcp__playwright__browser_navigate to the page
+// 2. mcp__playwright__browser_snapshot to capture accessibility tree
+// 3. mcp__playwright__browser_click to interact with elements
+// 4. mcp__playwright__browser_take_screenshot for visual verification
+```
+
+**When to use Playwright:**
+
+- After creating new pages or components
+- When implementing forms or user interactions
+- To verify authentication flows
+- To test role-based access control
+- Before committing major UI changes
+
+### 3. Use CodeRabbit CLI for Code Review
+
+Before committing changes, use CodeRabbit CLI to get feedback:
+
+```bash
+# Run CodeRabbit review on staged changes
+coderabbit review
+```
+
+**When to use CodeRabbit:**
+
+- Before creating pull requests
+- After implementing new features
+- When refactoring code
+- To catch potential bugs or issues
+- To ensure code quality standards
+
+## Development Workflow
+
+1. **Plan the task** - Use TodoWrite to track multi-step tasks
+2. **Research** - Use Context7 to get latest docs for libraries you'll use
+3. **Implement** - Write code following project conventions
+4. **Test** - Use Playwright MCP to test in browser
+5. **Review** - Use CodeRabbit CLI for code feedback
+6. **Commit** - Create descriptive commits with proper format
+7. **Push & PR** - Push branch and create pull request to master
+
+## Environment Variables
+
+Required in `.env.local`:
+
+```
+NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
+```
+
+## Common Commands
+
+```bash
+# Install dependencies
+pnpm install
+
+# Run dev server
+pnpm dev
+
+# Build for production
+pnpm build
+
+# Type check
+pnpm exec tsc --noEmit
+
+# Run Playwright tests
+pnpm exec playwright test
+```
+
+## Important Notes
+
+- **Never recreate the profiles table** - it already exists with admin users
+- **Always use server-side auth checks** - never trust client-side role checks
+- **Use RLS policies** - leverage Supabase Row Level Security
+- **Test with real admin users** - admin role should already be set in profiles table
+- **Mock data exists** - 5 sample videos are in the videos table for testing
+- **Dark mode support** - all components should support dark mode variants
+
+## Migration Files Location
+
+Database migrations are stored in the app directory:
+
+- `disney-ai-plus-app/supabase-videos-migration.sql` - Videos table migration
+- Run migrations in Supabase SQL Editor
+
+## Supabase Setup References
+
+See `disney-ai-plus-app/SETUP.md` for initial auth setup
+See `disney-ai-plus-app/ADMIN_DASHBOARD_SETUP.md` for admin dashboard setup
