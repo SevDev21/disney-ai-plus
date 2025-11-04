@@ -49,7 +49,7 @@ export default async function DashboardPage() {
       </nav>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <UserView user={user} />
+        <UserView userId={user.id} />
       </main>
     </div>
   )
