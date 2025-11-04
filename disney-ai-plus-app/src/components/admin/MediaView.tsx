@@ -12,6 +12,7 @@ interface Video {
   uploaded_at: string
   duration: number | null
   file_size: number | null
+  region: string | null
 }
 
 function formatDuration(seconds: number | null): string {
@@ -91,6 +92,22 @@ export default async function MediaView() {
                   alt={video.title}
                   className="w-full h-full object-cover"
                 />
+                {video.region && (
+                  <div className="absolute top-2 left-2">
+                    <Badge
+                      variant={video.region === 'USA' ? 'default' : 'secondary'}
+                      className={
+                        video.region === 'USA'
+                          ? 'bg-blue-600 hover:bg-blue-700'
+                          : video.region === 'Asia'
+                          ? 'bg-green-600 hover:bg-green-700'
+                          : ''
+                      }
+                    >
+                      {video.region}
+                    </Badge>
+                  </div>
+                )}
                 {video.duration && (
                   <div className="absolute bottom-2 right-2 bg-black/80 text-white px-2 py-1 rounded text-xs font-medium flex items-center gap-1">
                     <Clock className="w-3 h-3" />
