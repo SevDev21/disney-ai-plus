@@ -35,16 +35,38 @@ export async function middleware(request: NextRequest) {
   } = await supabase.auth.getUser()
 
   // Protected routes - redirect to login if not authenticated
-  if (!user && request.nextUrl.pathname.startsWith('/dashboard')) {
+  if (!user && (request.nextUrl.pathname.startsWith('/dashboard') || request.nextUrl.pathname.startsWith('/admin'))) {
     const url = request.nextUrl.clone()
     url.pathname = '/login'
     return NextResponse.redirect(url)
   }
 
-  // Redirect to dashboard if user is already logged in
+  // Check if user is trying to access admin routes
+  if (user && request.nextUrl.pathname.startsWith('/admin')) {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .single()
+
+    // Redirect non-admin users to regular dashboard
+    if (profile?.role !== 'admin') {
+      const url = request.nextUrl.clone()
+      url.pathname = '/dashboard'
+      return NextResponse.redirect(url)
+    }
+  }
+
+  // Redirect to appropriate dashboard if user is already logged in
   if (user && request.nextUrl.pathname === '/login') {
+    const { data: profile } = await supabase
+      .from('profiles')
+      .select('role')
+      .eq('id', user.id)
+      .single()
+
     const url = request.nextUrl.clone()
-    url.pathname = '/dashboard'
+    url.pathname = profile?.role === 'admin' ? '/admin/dashboard' : '/dashboard'
     return NextResponse.redirect(url)
   }
 
