@@ -1,9 +1,12 @@
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
-import UserView from '@/components/UserView'
 import LogoutButton from '@/components/LogoutButton'
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs'
+import MediaView from '@/components/admin/MediaView'
+import UsersView from '@/components/admin/UsersView'
+import { Badge } from '@/components/ui/badge'
 
-export default async function DashboardPage() {
+export default async function AdminDashboardPage() {
   const supabase = await createClient()
 
   const {
@@ -23,9 +26,9 @@ export default async function DashboardPage() {
 
   const isAdmin = profile?.role === 'admin'
 
-  // Redirect admin users to admin dashboard
-  if (isAdmin) {
-    redirect('/admin/dashboard')
+  // Redirect non-admin users to regular dashboard
+  if (!isAdmin) {
+    redirect('/dashboard')
   }
 
   return (
@@ -33,10 +36,13 @@ export default async function DashboardPage() {
       <nav className="bg-white dark:bg-gray-800 shadow-sm border-b border-gray-200 dark:border-gray-700">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
-            <div className="flex items-center">
+            <div className="flex items-center gap-3">
               <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-                Dashboard
+                Admin Dashboard
               </h1>
+              <Badge variant="default" className="bg-indigo-600">
+                Admin
+              </Badge>
             </div>
             <div className="flex items-center gap-4">
               <span className="text-sm text-gray-600 dark:text-gray-400">
@@ -49,7 +55,20 @@ export default async function DashboardPage() {
       </nav>
 
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-        <UserView user={user} />
+        <Tabs defaultValue="media" className="w-full">
+          <TabsList className="grid w-full max-w-md grid-cols-2">
+            <TabsTrigger value="media">Media</TabsTrigger>
+            <TabsTrigger value="users">Users</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="media" className="mt-6">
+            <MediaView />
+          </TabsContent>
+
+          <TabsContent value="users" className="mt-6">
+            <UsersView />
+          </TabsContent>
+        </Tabs>
       </main>
     </div>
   )
