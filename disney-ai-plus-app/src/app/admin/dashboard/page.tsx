@@ -6,6 +6,8 @@ import MediaView from '@/components/admin/MediaView'
 import UsersView from '@/components/admin/UsersView'
 import { Badge } from '@/components/ui/badge'
 
+export const dynamic = 'force-dynamic'
+
 export default async function AdminDashboardPage() {
   const supabase = await createClient()
 

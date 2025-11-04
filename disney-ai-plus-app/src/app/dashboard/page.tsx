@@ -3,6 +3,8 @@ import { redirect } from 'next/navigation'
 import UserView from '@/components/UserView'
 import LogoutButton from '@/components/LogoutButton'
 
+export const dynamic = 'force-dynamic'
+
 export default async function DashboardPage() {
   const supabase = await createClient()
 

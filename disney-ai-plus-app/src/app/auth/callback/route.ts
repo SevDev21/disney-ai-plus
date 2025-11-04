@@ -1,6 +1,8 @@
 import { createClient } from '@/lib/supabase/server'
 import { NextResponse } from 'next/server'
 
+export const dynamic = 'force-dynamic'
+
 // Whitelist of allowed hosts for production redirects
 const ALLOWED_HOSTS = [
   'localhost:3000',

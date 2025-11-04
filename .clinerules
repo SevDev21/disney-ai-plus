@@ -237,6 +237,7 @@ pnpm exec playwright test
 - **Test with real admin users** - admin role should already be set in profiles table
 - **Mock data exists** - 5 sample videos are in the videos table for testing
 - **Dark mode support** - all components should support dark mode variants
+- **Code audit before implementation** - audit the codebase before starting the implementation and ask the user any clarifying questions. DO NOT OVERWRITE EXISTING FUNCTIONS until specifically asked by the Feature request/issue
 
 ## Migration Files Location
 
