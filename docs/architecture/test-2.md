@@ -37,5 +37,3 @@ This guide outlines a suggested implementation path based on the requirements br
 - Feed these artifacts into the downstream developer AI.
 
 ---
-
----
