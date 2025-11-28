@@ -20,6 +20,8 @@ flowchart LR
 - The design shall define a container db named Database (SQL/NoSQL), and implementation work must provision it as a distinct deployable or conceptual element.
 - The architecture shall include a relationship where web uses api, and this connection must be implemented with appropriate protocols, security, and error handling.
 - The architecture shall include a relationship where api reads/writes db, and this connection must be implemented with appropriate protocols, security, and error handling.
+- The development team shall treat each visual element as either a deployable artifact, a runtime capability, or an integration point, and create tasks to build, configure, and test each of them.
+- Non-functional requirements (performance, security, observability, resilience) must be applied to all links and components shown in the diagram.
 
 ---
 
