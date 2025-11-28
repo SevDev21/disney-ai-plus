@@ -16,8 +16,6 @@ flowchart LR
 - The design shall define a person user named User, and implementation work must provision it as a distinct deployable or conceptual element.
 - The design shall define a system system named System (High-level description), and implementation work must provision it as a distinct deployable or conceptual element.
 - The architecture shall include a relationship where user uses system, and this connection must be implemented with appropriate protocols, security, and error handling.
-- The development team shall treat each visual element as either a deployable artifact, a runtime capability, or an integration point, and create tasks to build, configure, and test each of them.
-- Non-functional requirements (performance, security, observability, resilience) must be applied to all links and components shown in the diagram.
 
 ---
 

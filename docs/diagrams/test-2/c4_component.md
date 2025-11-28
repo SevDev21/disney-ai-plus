@@ -16,8 +16,6 @@ flowchart LR
 - The design shall define a container api named API (HTTP), and implementation work must provision it as a distinct deployable or conceptual element.
 - The design shall define a component auth named Auth Component (Handles authentication), and implementation work must provision it as a distinct deployable or conceptual element.
 - The design shall define a component catalog named Catalog Component (Catalog operations), and implementation work must provision it as a distinct deployable or conceptual element.
-- The development team shall treat each visual element as either a deployable artifact, a runtime capability, or an integration point, and create tasks to build, configure, and test each of them.
-- Non-functional requirements (performance, security, observability, resilience) must be applied to all links and components shown in the diagram.
 
 ---
 

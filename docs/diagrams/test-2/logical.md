@@ -5,10 +5,16 @@
 ```mermaid
 classDiagram
 
-    class Subscription
-    class User
+    class User {
+        +id
+        +email
+    }
+    class Subscription {
+        +id
+        +status
+    }
 
-    User --> Subscription
+    User "1" -- "*" Subscription
 ```
 
 ## Requirements

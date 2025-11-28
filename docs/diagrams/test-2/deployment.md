@@ -9,6 +9,7 @@ flowchart LR
     kubernetes_cluster[Kubernetes Cluster]
     api[API Pod]
     web[Web Pod]
+    db[(db)]
 
 ```
 
@@ -16,8 +17,7 @@ flowchart LR
 
 - The deployment model shall include a node api representing API Pod, and infrastructure tasks must ensure it is provisioned, monitored, and reachable by its peers.
 - The deployment model shall include a node web representing Web Pod, and infrastructure tasks must ensure it is provisioned, monitored, and reachable by its peers.
-- The development team shall treat each visual element as either a deployable artifact, a runtime capability, or an integration point, and create tasks to build, configure, and test each of them.
-- Non-functional requirements (performance, security, observability, resilience) must be applied to all links and components shown in the diagram.
+- The deployment model shall include a database db, and infrastructure tasks must provision, secure, and monitor it.
 
 ---
 
