@@ -1,10 +1,4 @@
-_Source: [ArchAiTect Workbench project](https://docs.shafie.org/projects/test-2/)_
-
-<a id="top"></a>
-
-## Test 2
-
-This is the architecture workspace for this project.
+# Architecture – Test 2
 
 ### Package
 
@@ -39,3 +33,7 @@ This guide outlines a suggested implementation path based on the requirements br
 - Feed these artifacts into the downstream developer AI.
 
 ---
+
+---
+
+_Source: generated from [ArchAiTect Workbench](https://workbench.shafie.org/projects/test-2/)_
