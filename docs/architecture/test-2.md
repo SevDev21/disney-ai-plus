@@ -34,6 +34,4 @@ This guide outlines a suggested implementation path based on the requirements br
 
 ---
 
----
-
 _Source: generated from [ArchAiTect Workbench](https://workbench.shafie.org/projects/test-2/)_
