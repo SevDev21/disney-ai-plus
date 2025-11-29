@@ -1,24 +1,22 @@
 # C4 Component
 
-```plantuml
-'Simple Login System – c4_component diagram stub
-'A basic login system for user authentication with features such as username/password validation.
+[Open in PlantUML](https://uml.shafie.org/uml/LP1DQiD038NtSmhLczXGcesNfJHuaq8NWOHkWp8pYGNpOsOqDQKKUeVUi2Ufuf06hoGUxnFlQR4bFpWBh_540ROVcQs7t-yVqErUHp_4O0E38Jmbz92v7DHY1GVCfC5DJBumnvYWP9i02_V2a4Qc660axk5eaKko6NBHFM2Ud06zNGwOynYJWNTqP2RaGQddp9YuUAVkA6XNZ8N7hbrsxRwxPdfIYeab-Ry2RsH7g5URbqQfBWP62ZRLED0zLA9MCjQxtQPgu5F1ZQlFYSyM6JTrScCmJbBFArNDZ1OHvHDYxoxR_CPLZ8DD4vw5_vAADXWf-0S0)
 
-@startuml
-!include <C4/C4_Component>
+```mermaid
+flowchart LR
 
-title Component View (API)
+    api[API<br/>HTTP]
+    auth[Auth Component<br/>Handles authentication]
+    catalog[Catalog Component<br/>Catalog operations]
 
-Container(api, "API", "HTTP") {
-  Component(auth, "Auth Component", "Handles authentication")
-  Component(catalog, "Catalog Component", "Catalog operations")
-}
-
-@enduml
 ```
 
-![C4 Component diagram](https://uml.shafie.org/png/LP1DQiD038NtSmhLczXGcesNfJHuaq8NWOHkWp8pYGNpOsOqDQKKUeVUi2Ufuf06hoGUxnFlQR4bFpWBh_540ROVcQs7t-yVqErUHp_4O0E38Jmbz92v7DHY1GVCfC5DJBumnvYWP9i02_V2a4Qc660axk5eaKko6NBHFM2Ud06zNGwOynYJWNTqP2RaGQddp9YuUAVkA6XNZ8N7hbrsxRwxPdfIYeab-Ry2RsH7g5URbqQfBWP62ZRLED0zLA9MCjQxtQPgu5F1ZQlFYSyM6JTrScCmJbBFArNDZ1OHvHDYxoxR_CPLZ8DD4vw5_vAADXWf-0S0)
+## Requirements
 
-[Open in PlantUML viewer](https://uml.shafie.org/uml/LP1DQiD038NtSmhLczXGcesNfJHuaq8NWOHkWp8pYGNpOsOqDQKKUeVUi2Ufuf06hoGUxnFlQR4bFpWBh_540ROVcQs7t-yVqErUHp_4O0E38Jmbz92v7DHY1GVCfC5DJBumnvYWP9i02_V2a4Qc660axk5eaKko6NBHFM2Ud06zNGwOynYJWNTqP2RaGQddp9YuUAVkA6XNZ8N7hbrsxRwxPdfIYeab-Ry2RsH7g5URbqQfBWP62ZRLED0zLA9MCjQxtQPgu5F1ZQlFYSyM6JTrScCmJbBFArNDZ1OHvHDYxoxR_CPLZ8DD4vw5_vAADXWf-0S0)
+- The design shall define a container api named API (HTTP), and implementation work must provision it as a distinct deployable or conceptual element.
+- The design shall define a component auth named Auth Component (Handles authentication), and implementation work must provision it as a distinct deployable or conceptual element.
+- The design shall define a component catalog named Catalog Component (Catalog operations), and implementation work must provision it as a distinct deployable or conceptual element.
+
+---
 
 _Source: generated from [ArchAiTect Workbench](https://workbench.shafie.org/projects/test-2/)_
