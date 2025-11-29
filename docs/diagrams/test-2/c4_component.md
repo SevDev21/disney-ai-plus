@@ -2,14 +2,7 @@
 
 [Open in PlantUML](https://uml.shafie.org/uml/LP1DQiD038NtSmhLczXGcesNfJHuaq8NWOHkWp8pYGNpOsOqDQKKUeVUi2Ufuf06hoGUxnFlQR4bFpWBh_540ROVcQs7t-yVqErUHp_4O0E38Jmbz92v7DHY1GVCfC5DJBumnvYWP9i02_V2a4Qc660axk5eaKko6NBHFM2Ud06zNGwOynYJWNTqP2RaGQddp9YuUAVkA6XNZ8N7hbrsxRwxPdfIYeab-Ry2RsH7g5URbqQfBWP62ZRLED0zLA9MCjQxtQPgu5F1ZQlFYSyM6JTrScCmJbBFArNDZ1OHvHDYxoxR_CPLZ8DD4vw5_vAADXWf-0S0)
 
-```mermaid
-flowchart LR
-
-    api[API<br/>HTTP]
-    auth[Auth Component<br/>Handles authentication]
-    catalog[Catalog Component<br/>Catalog operations]
-
-```
+![C4 Component diagram](images/c4-component-diagram.png)
 
 ## Requirements
 
