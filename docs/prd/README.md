@@ -19,5 +19,32 @@ This document is designed to help AI assistants and developers quickly understan
 
 ---
 
+## Feature PRDs
+
+### Authorization Architecture
+- **Authorization Architecture** → [PRD](https://www.notion.so/2a186e7c70d08177911bf56e72795caf)
+  - #24 Authorization Architecture: Implement Sign-in Flow
+  - #25 Authorization Architecture: Secure Token Storage
+  - #26 Authorization Architecture: API Request Authorization
+  - #27 Authorization Architecture: Token Refresh Mechanism
+  - #28 Authorization Architecture: Backend Token Validation
+  - #29 Authorization Architecture: Error Handling & User Experience
+  - #30 Authorization Architecture: Integration Testing
+  - #31 Authorization Architecture: Token Configuration & Security
+
+### Authentication v2
+- **Authentication v2** → [PRD v2](https://www.notion.so/2ba86e7c70d0817eaac5c3d974b5dc7b)
+  - #33 Authentication v2: Implement IdentityProvider Integration
+  - #34 Authentication v2: Implement Web App Login Interface
+  - #35 Authentication v2: Implement API POST /login Endpoint
+  - #36 Authentication v2: Implement Auth Component in API
+  - #37 Authentication v2: Container Architecture Setup
+  - #38 Authentication v2: Deployment Infrastructure
+  - #39 Authentication v2: Non-Functional Requirements Implementation
+  - #40 Authentication v2: End-to-End Integration Testing
+  - Linear Templates: [View Templates](docs/linear-templates/authentication-v2-linear-templates.md)
+
+---
+
 *Note: This PRD is maintained as a markdown document in the repository for easy access and version control.*
 
