@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: disney-ai-plus
+  labels:
+    app.kubernetes.io/name: disney-ai-plus
+    app.kubernetes.io/part-of: disney-ai-plus

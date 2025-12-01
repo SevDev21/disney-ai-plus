@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: db
+  namespace: disney-ai-plus
+  labels:
+    app.kubernetes.io/name: db
+    app.kubernetes.io/component: database
+    app.kubernetes.io/part-of: disney-ai-plus
+spec:
+  type: ClusterIP
+  ports:
+    - port: 5432
+      targetPort: postgres
+      protocol: TCP
+      name: postgres
+    - port: 9187
+      targetPort: metrics
+      protocol: TCP
+      name: metrics
+  selector:
+    app.kubernetes.io/name: db
