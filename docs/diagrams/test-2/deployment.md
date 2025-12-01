@@ -12,6 +12,24 @@
 - The development team shall treat each visual element as either a deployable artifact, a runtime capability, or an integration point, and create tasks to build, configure, and test each of them.
 - Non-functional requirements (performance, security, observability, resilience) must be applied to all links and components shown in the diagram.
 
+```plantuml
+'Simple Login System – deployment diagram stub
+'A basic login system for user authentication with features such as username/password validation.
+
+@startuml
+title Deployment Diagram (Simplified)
+
+node "Cloud Region" {
+  node "Kubernetes Cluster" {
+    node "API Pod" as api
+    node "Web Pod" as web
+  }
+  database db
+}
+
+@enduml
+```
+
 ---
 
 _Source: generated from [ArchAiTect Workbench](https://workbench.shafie.org/projects/test-2/)_

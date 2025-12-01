@@ -15,6 +15,28 @@
 - The development team shall treat each visual element as either a deployable artifact, a runtime capability, or an integration point, and create tasks to build, configure, and test each of them.
 - Non-functional requirements (performance, security, observability, resilience) must be applied to all links and components shown in the diagram.
 
+```plantuml
+'Simple Login System – sequence diagram stub
+'A basic login system for user authentication with features such as username/password validation.
+
+@startuml
+title Example Sequence (Login)
+
+actor User
+participant WebApp
+participant API
+participant IdentityProvider
+
+User -> WebApp: Enter credentials
+WebApp -> API: POST /login
+API -> IdentityProvider: Verify credentials
+IdentityProvider --> API: Result
+API --> WebApp: Session / token
+WebApp --> User: Logged in
+
+@enduml
+```
+
 ---
 
 _Source: generated from [ArchAiTect Workbench](https://workbench.shafie.org/projects/test-2/)_
