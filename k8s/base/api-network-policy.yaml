@@ -48,3 +48,14 @@ spec:
       ports:
         - protocol: UDP
           port: 53
+    # Allow outbound HTTPS traffic to external services (Supabase, etc.)
+    - to:
+        - ipBlock:
+            cidr: 0.0.0.0/0
+            except:
+              - 10.0.0.0/8
+              - 172.16.0.0/12
+              - 192.168.0.0/16
+      ports:
+        - protocol: TCP
+          port: 443
