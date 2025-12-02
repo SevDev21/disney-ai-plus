@@ -101,7 +101,9 @@ echo "[run_autocode_agent] Branch target: ${BRANCH_NAME}"
 # This assumes `claude` CLI is installed and on PATH.
 # We keep the invocation simple; you can add flags like --permission-mode or tools
 # later depending on your CLI version.
-claude -p "${PROMPT}"
+claude -p "${PROMPT}" \
+  --permission-mode bypassPermissions \
+  --dangerously-skip-permissions
 
 EXIT_CODE=$?
 echo "[run_autocode_agent] Claude finished with exit code ${EXIT_CODE}"
