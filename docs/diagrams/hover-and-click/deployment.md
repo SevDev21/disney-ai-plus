@@ -1,6 +1,6 @@
 # Deployment View
 
-[Open in PlantUML](https://uml.shafie.org/uml/JOzBIaD144NdlOfB9j69Qp0a4n4XACHnTRhoKjYVHrUrpo01z-0ENOaTOjH1JUufxcU-aS053smKo0WRuOahlZu-4NYCvP0u6uBGK2b1hNatNq0FQfnWUp9GZ6LIDEMgi8BNxe1qyIixy9keIHuwwL7zSomPsoZRbvDeUqutpjsgKRMMeZEno5ZzXQz-mg-U98rHTiBXshbS0cEsZAK5FF8W9S_mxe2pVjyyryp6YcLilMmzqmjVhE-mBc46Kj0e_yWp-ryoiU_asE-qnPCoWdV7tfPpw5s_0G00)
+[Open in PlantUML](https://uml.shafie.org/uml/JSwx2i9048NXVfvYIALl4KaQiGbQMCyonx2mbx0xYuZatGq4nU8q_zUSlfeKQp6GUGlW4Kl8huXaF7gPYqG-t7nSWdzuw94ePGLtGyXD-OhPvzJncvZtVcaE9S5GUGYj6igkNpzDPvwoTYoLPV5_SeVxoHDkatMRYecJ2bP7Ar6FfDlN3m00)
 
 ![Deployment View diagram](images/deployment-diagram.png)
 
@@ -13,9 +13,6 @@
 - Non-functional requirements (performance, security, observability, resilience) must be applied to all links and components shown in the diagram.
 
 ```plantuml
-'Video Metadata Viewer – deployment diagram stub
-'A system that allows users to view metadata of existing videos upon clicking them.
-
 @startuml
 title Deployment Diagram (Simplified)
 

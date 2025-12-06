@@ -1,6 +1,6 @@
 # C4 Container
 
-[Open in PlantUML](https://uml.shafie.org/uml/NL3BJWCn3BpdAynUsag8Ndf4g0yE804gRMcFgsnYseXiiegzb0eXyG_y8Lz2abL1z18vCvxnsBsrqUZX7bbgoHBM1lSOuFlp2zIeLDwnD2u2siXja3KGjvNeJO0En5W3xoI3jDRl2Lh2GC0UNgC7r4T7_mpuPeYDsqOc3ekTZNUWh54l2UGTrXT2Z8bbuBQsuimuPLkDS3aR3MUZSdPCSIK46xO8lqZEAyGofocdldLQXaE_ItSEHKSK0tWNyAVgxx6Av0Ohc3HD4SjfY1jWIENaP1lZ68DKN0p-MSZ6fERvRTBSh5RpRDDI98d0-grH9mgTPbx7arIIC7Kl7--63pw--SC-844wMTHzY0NQBcOtw8cG8fxG36Ip1KfDmqqmd4anHgVZ0Ny0)
+[Open in PlantUML](https://uml.shafie.org/uml/NL1DImCn4BtdLunxQa7OIuyYRTU3WafjQtiiivj10ccoP2OiHVplJb9Gz1BUpFkOHvOic2IVlRbnOV3P4jnrYxPRdBeO15sWT6-CEF44FniuE9gCsLrOw7nQnnmifikCwtmBpS5PYl12WXO5gvfICuTF0xyXiubwrHwfXzKuDWhNAKwiGeKhxnL3rf518hWWb72GPlud0aTNn9kduddSxpSr9hEIpE3ZXnl-EMov-Q2jUcGgwjtRS_iQzQs3n4GCfRNwlepPah_sl5vwPs8bohOkQjgMq79xJ4ugQPOKh7xeDm00)
 
 ![C4 Container diagram](images/c4-container-diagram.png)
 
@@ -15,19 +15,17 @@
 - Non-functional requirements (performance, security, observability, resilience) must be applied to all links and components shown in the diagram.
 
 ```plantuml
-'Video Metadata Viewer – c4_container diagram stub
-'A system that allows users to view metadata of existing videos upon clicking them.
-
 @startuml
 !include <C4/C4_Container>
 
 title Container View
 
-System_Boundary(system, "System") {
+System_Boundary(system, "Video Metadata Viewer") {
   Container(web, "Web App", "Browser", "Allows users to interact")
   Container(api, "API", "HTTP", "Business logic")
   Container(db, "Database", "SQL/NoSQL", "Stores data")
 }
+
 Rel(web, api, "Uses")
 Rel(api, db, "Reads/Writes")
 
